@@ -6,7 +6,7 @@ class AIConsultantDeepSeek:
     def __init__(self, api_key):
         self.client = OpenAI(
             api_key=api_key,
-            base_url="https://api.deepseek.com/v1"
+            base_url="https://openrouter.ai/api/v1"
         )
 
     def get_ai_response(self, prompt):
@@ -23,13 +23,13 @@ class AIConsultant:
     def __init__(self, api_key):
         self.client = OpenAI(
             api_key=api_key,
-            base_url="https://api.proxyapi.ru/openai/v1"
+            base_url="https://openrouter.ai/api/v1"
         )
 
     def get_ai_response(self, prompt):
         try:
             response = self.client.chat.completions.create(
-                model="gpt-3.5-turbo",
+                model="google/gemini-2.5-pro-exp-03-25:free",
                 messages=[{"role": "user", "content": prompt}]
             )
             return response.choices[0].message.content
@@ -41,12 +41,12 @@ def main():
     print("Для выхода введите 'exit' или 'quit'\n")
 
     # Укажите ваш API-ключ
-    flag = input('1 - gpt\ 2 - deepseek')
+    flag = input('1 - Google  or 2 - deepseek')
     if flag:
-        api_key = "sk-eojihWMYuwlwO4oNjNMX8DbkkkBtLg7I"
+        api_key = "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"
         consultant = AIConsultant(api_key)
     else:
-        api_key_ds = "sk-1d99cfa9db714d5083eb5394cf64f54d"
+        api_key_ds = "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"
         consultant = AIConsultantDeepSeek(api_key_ds)
 
     while True:

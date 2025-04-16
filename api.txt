@@ -1,0 +1,9 @@
+[DeepSeek]
+Api_key -> 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
+Url -> https://openrouter.ai/api/v1
+model -> deepseek-chat
+
+[Google Gemini]
+Api_key -> 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
+Url -> https://openrouter.ai/api/v1
+model -> google/gemini-2.5-pro-exp-03-25:free
